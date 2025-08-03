@@ -1,0 +1,60 @@
+`timescale 1ns / 1ps
+
+module soc_tb;
+
+    // Clock & Reset
+    reg clk;
+    reg rst;
+
+    // GPIO
+    reg  [15:0] gpioInput;
+    wire [15:0] gpioOutput;
+
+    // PWM
+    wire pwmOut;
+
+    // Instantiate DUT
+    soc dut (
+        .clk(clk),
+        .rst(rst),
+        .gpioInput(gpioInput),
+        .gpioOutput(gpioOutput),
+        .pwmOut(pwmOut)
+    );
+
+    // Clock generation
+    always #5 clk = ~clk;
+
+    initial begin
+        // Init
+        clk = 0;
+        rst = 1;
+        gpioInput = 16'h0000;
+
+        // Hold reset
+        #20;
+        rst = 0;
+
+        // ========================
+        // GPIO TEST
+        // ========================
+        #10; gpioInput = 16'hAAAA;   // Expect gpioOutput = 0xAAAA
+        #10; gpioInput = 16'h5555;   // Expect gpioOutput = 0x5555
+        #10; gpioInput = 16'hFFFF;   // Expect gpioOutput = 0xFFFF
+        #10; gpioInput = 16'h0000;   // Expect gpioOutput = 0x0000
+        #10; gpioInput = 16'h00FF;   // Expect gpioOutput = 0x00FF
+        #10; gpioInput = 16'hF0F0;   // Expect gpioOutput = 0xF0F0
+
+        // ========================
+        // PWM TEST
+        // ========================
+        // Chương trình MIPS đã ghi 50 vào thanh ghi compare tại 0x7F10
+        // PWM sẽ tự động tạo duty cycle dựa trên giá trị này
+
+        // Đợi một khoảng để quan sát pwmOut thay đổi
+        #200;
+
+        $finish;
+    end
+
+endmodule

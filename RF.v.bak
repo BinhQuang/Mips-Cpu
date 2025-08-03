@@ -1,0 +1,20 @@
+module register_file (
+    input CLK,
+    input [31:0] a1, a2, a3,
+    input [31:0] wd3,
+    input we3,
+    output [31:0] rd1, rd2
+);
+
+    reg [31:0] rf [0:31]; // Mảng 32 register, mỗi register 32 bit
+
+    // Ghi dữ liệu vào register khi we3 = 1
+    always @(posedge CLK) begin
+        if (we3) rf[a3] <= wd3;
+    end
+
+    // Đọc dữ liệu từ register
+    assign rd1 = (a1 != 0) ? rf[a1] : 32'h0;
+    assign rd2 = (a2 != 0) ? rf[a2] : 32'h0;
+
+endmodule

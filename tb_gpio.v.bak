@@ -1,0 +1,69 @@
+`timescale 1ns / 1ps
+
+module tb_gpio;
+
+    reg         clk;
+    reg         rst;
+    reg         bSel;
+    reg         bWrite;
+    reg  [31:0] bAddr;
+    reg  [31:0] bWData;
+    reg  [15:0] gpioInput;
+    wire [31:0] bRData;
+    wire [15:0] gpioOutput;
+
+    // Instantiate DUT
+    gpio dut (
+        .clk(clk),
+        .rst(rst),
+        .bSel(bSel),
+        .bWrite(bWrite),
+        .bAddr(bAddr),
+        .bWData(bWData),
+        .bRData(bRData),
+        .gpioInput(gpioInput),
+        .gpioOutput(gpioOutput)
+    );
+
+    // Clock
+    always #5 clk = ~clk;
+
+    initial begin
+        $display("=== Test GPIO Start ===");
+
+        // Khởi tạo
+        clk = 0;
+        rst = 1;
+        bSel = 0;
+        bWrite = 0;
+        bAddr = 32'h0;
+        bWData = 32'h0;
+        gpioInput = 16'h0000;
+
+        #20 rst = 0;
+
+        // Test ghi output: ghi 0xAAAA vào địa chỉ 0x00000004
+        #10 bSel = 1;
+            bWrite = 1;
+            bAddr = 32'h00000004;
+            bWData = 32'h0000AAAA;
+        #10 bWrite = 0; // xung ghi kết thúc
+
+        // Đọc lại gpioOutput từ địa chỉ 0x00000004
+        #10 bAddr = 32'h00000004;
+        #10 $display("Read GPIO_OUT: %h (expect AAAA)", bRData[15:0]);
+
+        // Test đọc gpioInput từ địa chỉ 0x00000000
+        #10 gpioInput = 16'h55AA;
+            bAddr = 32'h00000000;
+        #10 $display("Read GPIO_IN : %h (expect 55AA)", bRData[15:0]);
+
+        // Thay đổi gpioInput tiếp
+        #10 gpioInput = 16'hF0F0;
+            bAddr = 32'h00000000;
+        #10 $display("Read GPIO_IN : %h (expect F0F0)", bRData[15:0]);
+
+        #10 $finish;
+    end
+
+endmodule

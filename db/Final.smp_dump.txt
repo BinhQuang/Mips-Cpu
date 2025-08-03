@@ -1,0 +1,30 @@
+
+State Machine - |CPU_pl|MEM_WB_memToReg
+Name MEM_WB_memToReg.00 MEM_WB_memToReg.10 MEM_WB_memToReg.01 
+MEM_WB_memToReg.00 0 0 0 
+MEM_WB_memToReg.01 1 0 1 
+MEM_WB_memToReg.10 1 1 0 
+
+State Machine - |CPU_pl|EX_MEM_pcSrc
+Name EX_MEM_pcSrc.00 EX_MEM_pcSrc.10 EX_MEM_pcSrc.01 
+EX_MEM_pcSrc.00 0 0 0 
+EX_MEM_pcSrc.01 1 0 1 
+EX_MEM_pcSrc.10 1 1 0 
+
+State Machine - |CPU_pl|EX_MEM_memToReg
+Name EX_MEM_memToReg.00 EX_MEM_memToReg.10 EX_MEM_memToReg.01 
+EX_MEM_memToReg.00 0 0 0 
+EX_MEM_memToReg.01 1 0 1 
+EX_MEM_memToReg.10 1 1 0 
+
+State Machine - |CPU_pl|ID_EX_pcSrc
+Name ID_EX_pcSrc.00 ID_EX_pcSrc.10 ID_EX_pcSrc.01 
+ID_EX_pcSrc.00 0 0 0 
+ID_EX_pcSrc.01 1 0 1 
+ID_EX_pcSrc.10 1 1 0 
+
+State Machine - |CPU_pl|ID_EX_memToReg
+Name ID_EX_memToReg.00 ID_EX_memToReg.10 ID_EX_memToReg.01 
+ID_EX_memToReg.00 0 0 0 
+ID_EX_memToReg.01 1 0 1 
+ID_EX_memToReg.10 1 1 0 

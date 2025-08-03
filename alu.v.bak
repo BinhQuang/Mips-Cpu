@@ -1,0 +1,32 @@
+module alu (
+    input  [31:0] srcA,
+    input  [31:0] srcB,
+    input  [3:0]  oper,
+    input  [4:0]  shift,
+    output reg        zero,
+    output reg [31:0] result
+);
+
+always @(*) begin
+    case (oper)
+        4'b0000: result = ~srcA;                           // NOT srcA
+        4'b0001: result = srcA & srcB;                     // AND
+        4'b0010: result = srcA ^ srcB;                     // XOR
+        4'b0011: result = srcA | srcB;                     // OR
+        4'b0100: result = srcA - 1;                        // Decrement srcA
+        4'b0101: result = srcA + srcB;                     // ADD
+        4'b0110: result = srcA - srcB;                     // SUB
+        4'b0111: result = srcA + 1;                        // Increment srcA
+        4'b1000: result = (srcA < srcB) ? 32'd1 : 32'd0;   // Set if Less Than (SLT)
+        4'b1010: result = srcB << shift;                   // Logical shift left by 'shift'
+        4'b1011: result = srcB >> shift;                   // Logical shift right by 'shift'
+        4'b1100: result = srcB << 16;                      // Shift left by 16 bits
+        default: result = srcA + srcB;                     // Default operation
+    endcase
+end
+
+always @(*) begin
+    zero = (result == 0); // Set zero flag
+end
+
+endmodule	

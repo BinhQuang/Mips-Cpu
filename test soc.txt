@@ -1,0 +1,37 @@
+// $t0: dữ liệu ghi ra GPIO Output
+// $t1: địa chỉ GPIO
+// $t2: giá trị đọc từ GPIO Input
+// $t3: địa chỉ RAM lưu kết quả
+
+lui   $t1, 0x0000         // $t1 = 0x00000000
+ori   $t1, $t1, 0x7F00    // $t1 = 0x00007F00 (base GPIO)
+
+lui   $t0, 0x0000         
+ori   $t0, $t0, 0xAAAA     // $t0 = 0xAAAA
+sw    $t0, 0x04($t1)       // Ghi $t0 vào GPIO_OUT tại 0x7F04
+
+lw    $t2, 0x00($t1)       // Đọc GPIO_IN tại 0x7F00 → vào $t2
+
+lui   $t3, 0x0000         
+ori   $t3, $t3, 0x1000     // $t3 = 0x00001000 (địa chỉ RAM)
+
+sw    $t2, 0x00($t3)       // Ghi giá trị đọc được từ GPIO_IN vào RAM[0x1000]
+34140032       # ori  $s4, $zero, 0x0032 # = 50
+AE9407F0       # sw   $s4, 0x7F10($s4)   -> PWM compare
+
+j     $0                   // vòng lặp ban đầu
+
+3C110000
+36317F00
+3C100000
+3610AAAA
+AE300004
+8E420000
+3C130000
+36731000
+AE620000
+34140032
+3C150000
+36B57F10
+AEB40000
+0800000D

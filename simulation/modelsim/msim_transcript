@@ -1,0 +1,60 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do Final_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+D:/ThietkeHDL/FinalLab {D:/ThietkeHDL/FinalLab/gpio.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module gpio
+# 
+# Top level modules:
+# 	gpio
+# vlog -vlog01compat -work work +incdir+D:/ThietkeHDL/FinalLab {D:/ThietkeHDL/FinalLab/register_we.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_we
+# 
+# Top level modules:
+# 	register_we
+# 
+# vlog -vlog01compat -work work +incdir+D:/ThietkeHDL/FinalLab {D:/ThietkeHDL/FinalLab/tb_gpio.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module tb_gpio
+# 
+# Top level modules:
+# 	tb_gpio
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneii_ver -L rtl_work -L work -voptargs="+acc"  tb_gpio
+# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneii_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps tb_gpio 
+# Loading work.tb_gpio
+# Loading work.gpio
+# Loading work.register_we
+# 
+# add wave *
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: QuangBinh  Hostname: BINH  ProcessID: 13664
+# 
+#           Attempting to use alternate WLF file "./wlfthmvwt1".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlfthmvwt1
+# 
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# === Test GPIO Start ===
+# Read GPIO_OUT: aaaa 
+# Read GPIO_IN : 55aa 
+# Read GPIO_IN : f0f0
+# Break in Module tb_gpio at D:/ThietkeHDL/FinalLab/tb_gpio.v line 66
+# Simulation Breakpoint: Break in Module tb_gpio at D:/ThietkeHDL/FinalLab/tb_gpio.v line 66
+# MACRO ./Final_run_msim_rtl_verilog.do PAUSED at line 18

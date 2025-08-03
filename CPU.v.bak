@@ -1,0 +1,14 @@
+module CPU(
+ input wire clk, rst_n,
+    input wire [1:0] pcSrc, regDst, memToReg, aluSrc,
+    input wire regWrite, memWrite, branch,
+    input wire [3:0] aluControl,
+    output wire zero
+);
+    // Internal signals
+    wire [31:0] q, d, pc_next, pc_branch, instr;
+    wire [31:0] signImm, pc_plus4;
+    wire branchCond;
+    wire [4:0] a3;
+    wire [31:0] wd3, rd1, rd2, srcA, srcB, aluResult;
+    wire [31:0] dmRD, dmWD;

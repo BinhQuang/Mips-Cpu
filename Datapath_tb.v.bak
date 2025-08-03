@@ -1,0 +1,81 @@
+`timescale 1ns/100ps
+
+module Datapath_tb;
+
+    // Inputs
+    reg clk;
+    reg rst;
+    reg condZero;
+    reg [1:0] pcSrc, regDst, memToReg;
+    reg aluSrc;
+    reg regWrite;
+    reg memWrite;
+    reg Branch;
+    reg [3:0] ALUOp;
+
+    // Outputs
+    wire aluZero;
+    wire [31:0] instr;
+
+    // Instantiate the Datapath
+    Datapath uut (
+        .clk(clk),
+        .rst(rst),
+        .condZero(condZero),
+        .pcSrc(pcSrc),
+        .regDst(regDst),
+        .memToReg(memToReg),
+        .aluSrc(aluSrc),
+        .regWrite(regWrite),
+        .memWrite(memWrite),
+        .Branch(Branch),
+        .ALUOp(ALUOp),
+        .aluZero(aluZero),
+        .instr(instr)
+    );
+
+    // Clock generation
+    initial begin
+        clk = 0;
+        forever #5 clk = ~clk;  // 10ns clock period
+    end
+
+    // Test sequence
+    initial begin
+        // Step 1: Reset
+        rst = 1;
+        condZero = 1'b0;
+        pcSrc = 2'b00;
+        regDst = 2'b00;
+        memToReg = 2'b00;
+        aluSrc = 1'b0;
+        regWrite = 1'b0;
+        memWrite = 1'b0;
+        Branch = 1'b0;
+        ALUOp = 4'b0101; // ALU default to ADD
+
+        #12; // hold reset for a bit longer than half a cycle
+        rst = 0;
+
+        // Step 2: Run with control signals for a few cycles
+        #10;
+        regWrite = 1;
+        aluSrc = 1;
+        memToReg = 2'b00;
+        regDst = 2'b01;
+        ALUOp = 4'b0101;
+
+        #30;
+        Branch = 1;
+        condZero = 1;
+        ALUOp = 4'b0110; // SUB for beq test
+
+        #20;
+        Branch = 0;
+
+        // Step 3: Stop simulation
+        #50;
+        $stop;
+    end
+
+endmodule

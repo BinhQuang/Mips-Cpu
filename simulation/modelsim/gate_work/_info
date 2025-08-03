@@ -1,0 +1,46 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\ThietkeHDL\FinalLab\simulation\modelsim
+vCPU_pl
+I^2CGKSkT;OY?RlbO=S0Ki0
+VnQ9jUOHFM_dDY<Oimam:^2
+Z1 dD:\ThietkeHDL\FinalLab\simulation\modelsim
+w1749884918
+8Final.vo
+FFinal.vo
+L0 31
+Z2 OV;L;10.1d;51
+r1
+31
+Z3 o-vlog01compat -work work -O0
+n@c@p@u_pl
+!i10b 1
+!s100 GNCKAijeFbOLNH<gCkK6V0
+!s85 0
+!s108 1749885966.261000
+!s107 Final.vo|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+.|Final.vo|
+!s101 -O0
+!s92 -vlog01compat -work work +incdir+. -O0
+vcpu_pl_tb
+!i10b 1
+!s100 PUQmeG;4Q>PdC7QTl9iKi3
+IP6lS=`=gnzc[V5>oio=DR2
+Vh:NB2kf>mDd2ClH1C?jHG0
+R1
+w1749885821
+8D:/ThietkeHDL/FinalLab/cpu_pl_tb.v
+FD:/ThietkeHDL/FinalLab/cpu_pl_tb.v
+L0 4
+R2
+r1
+!s85 0
+31
+!s108 1749885966.471000
+!s107 D:/ThietkeHDL/FinalLab/cpu_pl_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ThietkeHDL/FinalLab|D:/ThietkeHDL/FinalLab/cpu_pl_tb.v|
+!s101 -O0
+R3
+!s92 -vlog01compat -work work +incdir+D:/ThietkeHDL/FinalLab -O0

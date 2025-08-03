@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\ThietkeHDL\FinalLab\simulation\qsim
+vDatapath
+Z1 IQe6XaR<WRmY<D1UTN]:z53
+Z2 Vf@`YjW3UQ=`3KX0G2UcD22
+Z3 dD:\ThietkeHDL\FinalLab\simulation\qsim
+Z4 w1749300097
+Z5 8Final.vo
+Z6 FFinal.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 o-work work -O0
+Z9 n@datapath
+!i10b 1
+Z10 !s100 =2P0g@V=]4NgGSc`9;OVG3
+!s85 0
+Z11 !s108 1749300098.306000
+Z12 !s107 Final.vo|
+Z13 !s90 -work|work|Final.vo|
+!s101 -O0
+vDatapath_vlg_check_tst
+!i10b 1
+!s100 Zeak=C?J^B^L2djXPlj0e1
+IJ2?]:BfUZcIQmRi46]ilo0
+V6f]Em=5<o]5``RmCb=T?I1
+R3
+R4
+Z14 8Final.vt
+Z15 FFinal.vt
+L0 77
+R7
+r1
+!s85 0
+31
+Z16 !s108 1749300098.386000
+Z17 !s107 Final.vt|
+Z18 !s90 -work|work|Final.vt|
+!s101 -O0
+R8
+n@datapath_vlg_check_tst
+vDatapath_vlg_sample_tst
+!i10b 1
+!s100 D@4=HUS?P_hAn[PA8CeZn0
+I[jjzY46_fUnJeQCB[0USK0
+VcJ=gWkd:e1M]:nDH6H2ij3
+R3
+R4
+R14
+R15
+L0 29
+R7
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+R8
+n@datapath_vlg_sample_tst
+vDatapath_vlg_vec_tst
+!i10b 1
+!s100 GJhKY0RKahiY]UoB5WCNj0
+IZW6S3NS?[HVZ:SXK5fhRU3
+V4LSCebLYh<Lb7?m[@][QW1
+R3
+R4
+R14
+R15
+L0 1924
+R7
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+R8
+n@datapath_vlg_vec_tst
