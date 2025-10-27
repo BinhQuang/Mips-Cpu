@@ -1,4 +1,4 @@
-# 🖥️ MIPS 5-Stage Pipeline CPU
+#  MIPS 5-Stage Pipeline CPU
 
 ##  Giới thiệu
 Dự án này hiện thực một **CPU MIPS 5 giai đoạn pipeline** sử dụng ngôn ngữ mô tả phần cứng (HDL).  
@@ -6,8 +6,6 @@ Mục tiêu chính:
 - Giúp người học nắm vững nguyên lý **pipeline trong vi xử lý**.  
 - Hiểu cách xử lý **Instruction Fetch → Decode → Execute → Memory → Write Back**.  
 - Làm nền tảng cho các môn học **Computer Architecture**, **Digital IC Design**, **SoC Design**.  
-
----
 
 ##  Mục tiêu dự án
 - Xây dựng CPU pipeline 5 stage theo kiến trúc **MIPS**.  
@@ -17,7 +15,6 @@ Mục tiêu chính:
 - Hỗ trợ xử lý **branch hazard** (pipeline flush).  
 - Tạo **testbench** để mô phỏng và kiểm chứng hoạt động CPU.  
 
----
 
 ##  Kiến trúc Pipeline (5 giai đoạn)
 
@@ -41,13 +38,12 @@ Mục tiêu chính:
 5. **WB (Write Back)**  
    - Ghi kết quả tính toán hoặc dữ liệu đọc về **Register File**.  
 
----
 
 ##  Tính năng
-- ✔️ Thực hiện được các lệnh **ADD, SUB, AND, OR, SLT, LW, SW, BEQ, JUMP**.  
-- ✔️ Hỗ trợ **pipeline 5 giai đoạn** đầy đủ.  
-- ✔️ **Forwarding Unit** để giảm số chu kỳ chờ.  
-- ✔️ **Hazard Detection Unit** để xử lý *data hazard*.  
-- ✔️ **Branch prediction đơn giản** (hoặc flush pipeline khi nhảy).  
-- ✔️ Có **testbench mô phỏng** để kiểm chứng kết quả.  
+-  Thực hiện được các lệnh **ADD, SUB, AND, OR, SLT, LW, SW, BEQ, JUMP**.  
+-  Hỗ trợ **pipeline 5 giai đoạn** đầy đủ.  
+-  **Forwarding Unit** để giảm số chu kỳ chờ.  
+-  **Hazard Detection Unit** để xử lý *data hazard*.  
+-  **Branch prediction đơn giản** (hoặc flush pipeline khi nhảy).  
+-  Có **testbench mô phỏng** để kiểm chứng kết quả.  
 
